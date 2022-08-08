@@ -11,7 +11,7 @@ from coleta import coleta_pb2 as Coleta
 # As planilhas de indenizacoes seguem um formato de dados diferente a partir de setembro de 2021.
 
 
-def catch(month, year):
+def get(month, year):
     if year < 2019 or (year == 2019 and month < 7):
         metadata = Coleta.Metadados()
         metadata.nao_requer_login = True

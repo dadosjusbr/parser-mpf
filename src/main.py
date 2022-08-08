@@ -1,7 +1,7 @@
 import sys
 import os
-import metadata as mt
-import data as dt
+import metadata
+import data
 
 from coleta import coleta_pb2 as Coleta, IDColeta
 from google.protobuf.timestamp_pb2 import Timestamp
@@ -54,8 +54,8 @@ def parse_execution(data, file_names):
     rc.folha.CopyFrom(payroll)
     rc.coleta.CopyFrom(coleta)
 
-    metadata = mt.catch(int(MONTH), int(YEAR))
-    rc.metadados.CopyFrom(metadata)
+    mt = metadata.get(int(MONTH), int(YEAR))
+    rc.metadados.CopyFrom(mt)
 
     # Imprime a versão textual na saída padrão.
     print(text_format.MessageToString(rc), flush=True, end="")
@@ -64,9 +64,9 @@ def parse_execution(data, file_names):
 # Main execution
 def main():
     file_names = [f.rstrip() for f in sys.stdin.readlines()]
-    data = dt.load(file_names, YEAR, MONTH, OUTPUT_FOLDER)
-    data.validate()
-    parse_execution(data, file_names)
+    dt = data.load(file_names, YEAR, MONTH, OUTPUT_FOLDER)
+    dt.validate()
+    parse_execution(dt, file_names)
 
 
 if __name__ == "__main__":

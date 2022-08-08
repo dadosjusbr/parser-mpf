@@ -1,0 +1,5 @@
+pandas==1.2.3
+protoDadosjusbr>=0.7
+protobuf==3.18.0
+odfpy==1.4.1
+xlrd==2.0.1

@@ -79,7 +79,11 @@ def remunerations_after(file_indenizatorias):
                 rem.natureza = Coleta.Remuneracao.Natureza.Value("R")
                 rem.categoria = "Verbas indenizatórias"
                 rem.item = str(new_row[4])
-                rem.valor = float(number.format_value(new_row[5][2:]))
+                # Nessa coluna, os valores são dados como string e com "-R$" ou "R$" antes do valor
+                if '-' in new_row[5]:
+                    rem.valor = float(number.format_value(new_row[5][3:])) # Aqui removemos o "-R$"
+                else:
+                    rem.valor = float(number.format_value(new_row[5][2:])) # Aqui removemos o "R$"
                 rem.tipo_receita = Coleta.Remuneracao.TipoReceita.Value("O")
                 remuneracoes.remuneracao.append(rem)
             # Outras remunerações temporárias

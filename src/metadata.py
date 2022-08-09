@@ -28,7 +28,10 @@ def get(month, year):
         metadata.receita_base = Coleta.Metadados.OpcoesDetalhamento.DETALHADO
         metadata.despesas = Coleta.Metadados.OpcoesDetalhamento.DETALHADO
         metadata.outras_receitas = Coleta.Metadados.OpcoesDetalhamento.AUSENCIA
-        metadata.formato_consistente = False
+        if year == 2019 and (month == 6 or month == 7):
+            metadata.formato_consistente = False
+        else:
+            metadata.formato_consistente = True
     else:
         metadata = Coleta.Metadados()
         metadata.nao_requer_login = True
@@ -42,5 +45,8 @@ def get(month, year):
         metadata.receita_base = Coleta.Metadados.OpcoesDetalhamento.DETALHADO
         metadata.despesas = Coleta.Metadados.OpcoesDetalhamento.DETALHADO
         metadata.outras_receitas = Coleta.Metadados.OpcoesDetalhamento.DETALHADO
-        metadata.formato_consistente = False
+        if year == 2021 and month == 9:
+            metadata.formato_consistente = False
+        else:
+            metadata.formato_consistente = True
     return metadata

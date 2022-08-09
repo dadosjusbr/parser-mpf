@@ -1,4 +1,4 @@
-
+import re
 import number
 
 from coleta import coleta_pb2 as Coleta
@@ -80,10 +80,8 @@ def remunerations_after(file_indenizatorias):
                 rem.categoria = "Verbas indenizatórias"
                 rem.item = str(new_row[4])
                 # Nessa coluna, os valores são dados como string e com "-R$" ou "R$" antes do valor
-                if '-' in new_row[5]:
-                    rem.valor = float(number.format_value(new_row[5][3:])) # Aqui removemos o "-R$"
-                else:
-                    rem.valor = float(number.format_value(new_row[5][2:])) # Aqui removemos o "R$"
+                valor = re.sub("[-]?[R$] ?", "", new_row[5])
+                rem.valor = float(number.format_value(valor))
                 rem.tipo_receita = Coleta.Remuneracao.TipoReceita.Value("O")
                 remuneracoes.remuneracao.append(rem)
             # Outras remunerações temporárias

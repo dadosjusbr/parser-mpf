@@ -1,0 +1,72 @@
+{
+    "contraCheque": [
+        {
+            "idContraCheque": "mpf/09/2021/1",
+            "chaveColeta": "mpf/09/2021",
+            "nome": "ACACIA SOARES PEIXOTO SUASSUNA",
+            "matricula": "874",
+            "funcao": "PROCURADOR DA REPÚBLICA",
+            "localTrabalho": "PRM-C.GRANDE",
+            "ativo": true,
+            "remuneracoes": {
+                "remuneracao": [
+                    {
+                        "categoria": "Remuneração Básica",
+                        "item": "Remuneração do Cargo Efetivo",
+                        "valor": 33689.11
+                    },
+                    {
+                        "categoria": "Remuneração Básica",
+                        "item": "Outras Verbas Remuneratórias, Legais ou Judiciais"
+                    },
+                    {
+                        "categoria": "Remuneração Eventual ou Temporária",
+                        "item": "Função de Confiança ou Cargo em Comissão"
+                    },
+                    {
+                        "categoria": "Remuneração Eventual ou Temporária",
+                        "item": "Gratificação Natalina"
+                    },
+                    {
+                        "categoria": "Remuneração Eventual ou Temporária",
+                        "item": "Férias (1/3 Constitucional)"
+                    },
+                    {
+                        "categoria": "Remuneração Eventual ou Temporária",
+                        "item": "Abono de Permanência"
+                    },
+                    {
+                        "natureza": "D",
+                        "categoria": "Obrigatórios / Legais",
+                        "item": "Contribuição Previdenciária",
+                        "valor": -910.08
+                    },
+                    {
+                        "natureza": "D",
+                        "categoria": "Obrigatórios / Legais",
+                        "item": "Imposto de Renda",
+                        "valor": -33689.11
+                    },
+                    {
+                        "natureza": "D",
+                        "categoria": "Obrigatórios / Legais",
+                        "item": "Retenção por Teto Constitucional",
+                        "valor": -5448.83
+                    },
+                    {
+                        "categoria": "Verbas indenizatórias",
+                        "item": "AUXÍLIO-ALIMENTAÇÃO",
+                        "valor": 910.08,
+                        "tipoReceita": "O"
+                    },
+                    {
+                        "categoria": "Outras remunerações temporárias",
+                        "item": "GRATIFICAÇÃO POR EXERCÍCIO CUMULATIVO DE OFÍCIO",
+                        "valor": 4491.88,
+                        "tipoReceita": "O"
+                    }
+                ]
+            }
+        }
+    ]
+}

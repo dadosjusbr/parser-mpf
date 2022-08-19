@@ -1,0 +1,177 @@
+{
+    "contraCheque": [
+        {
+            "idContraCheque": "mpf/07/2019/1",
+            "chaveColeta": "mpf/07/2019",
+            "nome": "ACACIA SOARES PEIXOTO SUASSUNA",
+            "matricula": "874",
+            "funcao": "PROCURADOR DA REPÚBLICA",
+            "localTrabalho": "PRM-C.GRANDE",
+            "ativo": true,
+            "remuneracoes": {
+                "remuneracao": [
+                    {
+                        "categoria": "Remuneração Básica",
+                        "item": "Remuneração do Cargo Efetivo",
+                        "valor": 33689.11
+                    },
+                    {
+                        "categoria": "Remuneração Básica",
+                        "item": "Outras Verbas Remuneratórias, Legais ou Judiciais"
+                    },
+                    {
+                        "categoria": "Remuneração Eventual ou Temporária",
+                        "item": "Função de Confiança ou Cargo em Comissão"
+                    },
+                    {
+                        "categoria": "Remuneração Eventual ou Temporária",
+                        "item": "Gratificação Natalina"
+                    },
+                    {
+                        "categoria": "Remuneração Eventual ou Temporária",
+                        "item": "Férias (1/3 Constitucional)"
+                    },
+                    {
+                        "categoria": "Remuneração Eventual ou Temporária",
+                        "item": "Abono de Permanência"
+                    },
+                    {
+                        "natureza": "D",
+                        "categoria": "Obrigatórios / Legais",
+                        "item": "Contribuição Previdenciária",
+                        "valor": -910.08
+                    },
+                    {
+                        "natureza": "D",
+                        "categoria": "Obrigatórios / Legais",
+                        "item": "Imposto de Renda",
+                        "valor": -33689.11
+                    },
+                    {
+                        "natureza": "D",
+                        "categoria": "Obrigatórios / Legais",
+                        "item": "Retenção por Teto Constitucional",
+                        "valor": -3705.8
+                    },
+                    {
+                        "categoria": "Verbas Indenizatórias",
+                        "item": "Férias Indenizatórias",
+                        "tipoReceita": "O"
+                    },
+                    {
+                        "categoria": "Verbas Indenizatórias",
+                        "item": "Auxílio-alimentação",
+                        "valor": 910.08,
+                        "tipoReceita": "O"
+                    },
+                    {
+                        "categoria": "Verbas Indenizatórias",
+                        "item": "Auxílio-creche",
+                        "tipoReceita": "O"
+                    },
+                    {
+                        "categoria": "Verbas Indenizatórias",
+                        "item": "Auxílio-transporte",
+                        "tipoReceita": "O"
+                    },
+                    {
+                        "categoria": "Verbas Indenizatórias",
+                        "item": "Transporte Mobiliário",
+                        "tipoReceita": "O"
+                    },
+                    {
+                        "categoria": "Verbas Indenizatórias",
+                        "item": "Auxílio-natalidade",
+                        "tipoReceita": "O"
+                    },
+                    {
+                        "categoria": "Verbas Indenizatórias",
+                        "item": "Ajuda de Custo",
+                        "tipoReceita": "O"
+                    },
+                    {
+                        "categoria": "Verbas Indenizatórias",
+                        "item": "Auxílio-moradia",
+                        "tipoReceita": "O"
+                    },
+                    {
+                        "categoria": "Verbas Indenizatórias",
+                        "item": "Abono Pecuniário",
+                        "tipoReceita": "O"
+                    },
+                    {
+                        "categoria": "Verbas Indenizatórias",
+                        "item": "Licença Prêmio em Pecúnia",
+                        "tipoReceita": "O"
+                    },
+                    {
+                        "categoria": "Outras Remunerações Temporárias",
+                        "item": "Gratificação de Perícia e Projeto",
+                        "tipoReceita": "O"
+                    },
+                    {
+                        "categoria": "Outras Remunerações Temporárias",
+                        "item": "Gratificação Exercício Cumulativo de Ofício",
+                        "valor": 1497.29,
+                        "tipoReceita": "O"
+                    },
+                    {
+                        "categoria": "Outras Remunerações Temporárias",
+                        "item": "Gratificação Encargo de Curso e Concurso",
+                        "tipoReceita": "O"
+                    },
+                    {
+                        "categoria": "Outras Remunerações Temporárias",
+                        "item": "Gratificação Local de Trabalho",
+                        "tipoReceita": "O"
+                    },
+                    {
+                        "categoria": "Outras Remunerações Temporárias",
+                        "item": "Gratificação Natalina",
+                        "tipoReceita": "O"
+                    },
+                    {
+                        "categoria": "Outras Remunerações Temporárias",
+                        "item": "Hora Extra",
+                        "tipoReceita": "O"
+                    },
+                    {
+                        "categoria": "Outras Remunerações Temporárias",
+                        "item": "Abono de Permanência",
+                        "tipoReceita": "O"
+                    },
+                    {
+                        "categoria": "Outras Remunerações Temporárias",
+                        "item": "Adicional Noturno",
+                        "tipoReceita": "O"
+                    },
+                    {
+                        "categoria": "Outras Remunerações Temporárias",
+                        "item": "Adicional Atividade Penosa",
+                        "tipoReceita": "O"
+                    },
+                    {
+                        "categoria": "Outras Remunerações Temporárias",
+                        "item": "Adicional Insalubridade",
+                        "tipoReceita": "O"
+                    },
+                    {
+                        "categoria": "Outras Remunerações Temporárias",
+                        "item": "Outras Verbas Remuneratórias",
+                        "tipoReceita": "O"
+                    },
+                    {
+                        "categoria": "Outras Remunerações Temporárias",
+                        "item": "Outras Verbas Remuneratórias Retroativas/Temporárias",
+                        "tipoReceita": "O"
+                    },
+                    {
+                        "categoria": "Outras Remunerações Temporárias",
+                        "item": "Férias",
+                        "tipoReceita": "O"
+                    }
+                ]
+            }
+        }
+    ]
+}

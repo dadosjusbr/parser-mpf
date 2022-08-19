@@ -1,0 +1,58 @@
+{
+    "contraCheque": [
+        {
+            "idContraCheque": "mpf/05/2019/1",
+            "chaveColeta": "mpf/05/2019",
+            "nome": "ACACIA SOARES PEIXOTO SUASSUNA",
+            "funcao": "PROCURADOR DA REPUBLICA",
+            "localTrabalho": "PRM-C.GRANDE",
+            "ativo": true,
+            "remuneracoes": {
+                "remuneracao": [
+                    {
+                        "categoria": "Remuneração Básica",
+                        "item": "Remuneração do Cargo Efetivo",
+                        "valor": 33689.11
+                    },
+                    {
+                        "categoria": "Remuneração Básica",
+                        "item": "Outras Verbas Remuneratórias, Legais ou Judiciais"
+                    },
+                    {
+                        "categoria": "Remuneração Eventual ou Temporária",
+                        "item": "Função de Confiança ou Cargo em Comissão"
+                    },
+                    {
+                        "categoria": "Remuneração Eventual ou Temporária",
+                        "item": "Gratificação Natalina"
+                    },
+                    {
+                        "categoria": "Remuneração Eventual ou Temporária",
+                        "item": "Férias (1/3 Constitucional)"
+                    },
+                    {
+                        "categoria": "Remuneração Eventual ou Temporária",
+                        "item": "Abono de Permanência"
+                    },
+                    {
+                        "natureza": "D",
+                        "categoria": "Obrigatórios / Legais",
+                        "item": "Contribuição Previdenciária",
+                        "valor": -3705.8
+                    },
+                    {
+                        "natureza": "D",
+                        "categoria": "Obrigatórios / Legais",
+                        "item": "Imposto de Renda",
+                        "valor": -7273.63
+                    },
+                    {
+                        "natureza": "D",
+                        "categoria": "Obrigatórios / Legais",
+                        "item": "Retenção por Teto Constitucional"
+                    }
+                ]
+            }
+        }
+    ]
+    }

@@ -14,8 +14,6 @@ from coleta import coleta_pb2 as Coleta
 def get(month, year):
     if year < 2019 or (year == 2019 and month < 7):
         metadata = Coleta.Metadados()
-        metadata.nao_requer_login = True
-        metadata.nao_requer_captcha = True
         metadata.acesso = Coleta.Metadados.FormaDeAcesso.ACESSO_DIRETO
         if year == 2019 and month == 6:
             metadata.extensao = Coleta.Metadados.Extensao.ODS

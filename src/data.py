@@ -1,19 +1,15 @@
 import sys
 import os
 import pandas as pd
-
-# Se for erro de não existir planilhas o retorno vai ser esse:
-STATUS_DATA_UNAVAILABLE = 4
-# Caso o erro for a planilha, que é invalida por algum motivo, o retorno vai ser esse:
-STATUS_INVALID_FILE = 5
+from status import status
 
 
 def _readODS(file):
     try:
         data = pd.read_excel(file, engine='odf').to_numpy()
     except Exception as excep:
-        print(f"Erro lendo as planilhas: {excep}", file=sys.stderr)
-        sys.exit(STATUS_INVALID_FILE)
+        status.exit_from_error(status.Error(
+            status.SystemError, f"Erro lendo as planilhas: {excep}"))
     return data
 
 
@@ -21,8 +17,8 @@ def _readXLS(file):
     try:
         data = pd.read_excel(file, engine='xlrd').to_numpy()
     except Exception as excep:
-        print(f"Erro lendo as planilhas: {excep}", file=sys.stderr)
-        sys.exit(STATUS_INVALID_FILE)
+        status.exit_from_error(status.Error(
+            status.SystemError, f"Erro lendo as planilhas: {excep}"))
     return data
 
 
@@ -77,9 +73,8 @@ class Data:
                     f"{self.output_folder}/membros-ativos-indenizacoes-{self.month}-{self.year}.ods"
                 )
         ):
-            sys.stderr.write(
-                f"Não existe planilhas para {self.month}/{self.year}.")
-            sys.exit(STATUS_DATA_UNAVAILABLE)
+            status.exit_from_error(status.Error(
+                status.DataUnavailable, f"Não existe planilhas para {self.month}/{self.year}."))
 
 
 class DataContracheque:
@@ -99,10 +94,8 @@ class DataContracheque:
         """
         if int(self.year) == 2018 or (int(self.year) == 2019 and int(self.month) <= 5):
             if not os.path.isfile(f"{self.output_folder}/membros-ativos-contracheques-{self.month}-{self.year}.xls"):
-                sys.stderr.write(
-                    f"Não existe planilhas para {self.month}/{self.year}.")
-                sys.exit(STATUS_DATA_UNAVAILABLE)
+                status.exit_from_error(status.Error(
+                    status.DataUnavailable, f"Não existe planilhas para {self.month}/{self.year}."))
         elif not os.path.isfile(f"{self.output_folder}/membros-ativos-contracheques-{self.month}-{self.year}.ods"):
-            sys.stderr.write(
-                f"Não existe planilhas para {self.month}/{self.year}.")
-            sys.exit(STATUS_DATA_UNAVAILABLE)
+            status.exit_from_error(status.Error(
+                status.DataUnavailable, f"Não existe planilhas para {self.month}/{self.year}."))

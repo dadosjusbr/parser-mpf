@@ -36,14 +36,14 @@ def get(month, year):
         metadata.nao_requer_captcha = True
         metadata.acesso = Coleta.Metadados.FormaDeAcesso.ACESSO_DIRETO
         metadata.extensao = Coleta.Metadados.Extensao.ODS
-        metadata.estritamente_tabular = True
+        metadata.estritamente_tabular = False
         metadata.tem_matricula = True
         metadata.tem_lotacao = True
         metadata.tem_cargo = True
         metadata.receita_base = Coleta.Metadados.OpcoesDetalhamento.DETALHADO
         metadata.despesas = Coleta.Metadados.OpcoesDetalhamento.DETALHADO
         metadata.outras_receitas = Coleta.Metadados.OpcoesDetalhamento.DETALHADO
-        if year == 2021 and month == 9:
+        if (year == 2021 and month == 9) or (year == 2023 and month == 2):
             metadata.formato_consistente = False
         else:
             metadata.formato_consistente = True

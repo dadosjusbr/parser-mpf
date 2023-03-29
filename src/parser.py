@@ -74,23 +74,26 @@ def remunerations_after(file_indenizatorias):
             mat = str(new_row[0])
             remuneracoes = dict_remuneracoes.get(mat, Coleta.Remuneracoes())
             # Verbas indenizatórias
-            if new_row[4] != "N/C":
+            # O MPF não possui formato estritamente tabular, sendo necessário apagarmos células vazias, deixando apenas os dados (new_row[8]).
+            # Quando o membro não possui verba indenizatória, 2 campos ficam vazios. Assim, new_row possui 6 campos.
+            # Quando o membro não possui outras remunerações temporárias, o órgão adiciona um campo "N/C" e o outro é vazio.
+            # Assim, new_row possui 7 campos.
+            # Quando o membro possui as duas verbas, new_row contém a descrição e valor de ambos, ficando com 8 campos
+            if new_row[4] != "N/C" and len(new_row) in [8, 7]:
                 rem = Coleta.Remuneracao()
                 rem.natureza = Coleta.Remuneracao.Natureza.Value("R")
                 rem.categoria = "Verbas indenizatórias"
                 rem.item = str(new_row[4])
-                # Nessa coluna, os valores são dados como string e com "-R$" ou "R$" antes do valor
-                valor = re.sub("[-]?[R$] ?", "", new_row[5])
-                rem.valor = float(number.format_value(valor))
+                rem.valor = float(number.format_value(new_row[5]))
                 rem.tipo_receita = Coleta.Remuneracao.TipoReceita.Value("O")
                 remuneracoes.remuneracao.append(rem)
             # Outras remunerações temporárias
-            if new_row[6] != "N/C":
+            if len(new_row) in [8, 6]:
                 rem = Coleta.Remuneracao()
                 rem.natureza = Coleta.Remuneracao.Natureza.Value("R")
                 rem.categoria = "Outras remunerações temporárias"
-                rem.item = str(new_row[6])
-                rem.valor = float(number.format_value(new_row[7]))
+                rem.item = str(new_row[len(new_row)-2])
+                rem.valor = float(number.format_value(new_row[len(new_row)-1]))
                 rem.tipo_receita = Coleta.Remuneracao.TipoReceita.Value("O")
                 remuneracoes.remuneracao.append(rem)
             dict_remuneracoes[mat] = remuneracoes

@@ -7,18 +7,17 @@ from coleta import coleta_pb2 as Coleta, IDColeta
 from google.protobuf.timestamp_pb2 import Timestamp
 from google.protobuf import text_format
 from parser import parse
+from status import status
 
 if "YEAR" in os.environ:
     YEAR = os.environ["YEAR"]
 else:
-    sys.stderr.write("YEAR environment variable not set\n")
-    os._exit(1)
+    status.exit_from_error(status.Error(status.InvalidInput, "YEAR environment variable not set\n"))
 
 if "MONTH" in os.environ:
     MONTH = os.environ["MONTH"]
 else:
-    sys.stderr.write("MONTH environment variable not set\n")
-    os._exit(1)
+    status.exit_from_error(status.Error(status.InvalidInput, "MONTH environment variable not set\n"))
 
 if "OUTPUT_FOLDER" in os.environ:
     OUTPUT_FOLDER = os.environ["OUTPUT_FOLDER"]

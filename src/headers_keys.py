@@ -1,6 +1,6 @@
 REMUNERACAOBASICA = "Remuneração Básica"
 EVENTUALTEMP = "Remuneração Eventual ou Temporária"
-OBRIGATORIOS = "Obrigatórios / Legais"
+OBRIGATORIOS = "Obrigatórios/Legais"
 OBRIGATORIOS_ANTES = "Obrigatórios / Legais"
 INDENIZACOES_ANTES = "Verbas Indenizatórias"
 REMTEMP_ANTES = "Outras Remunerações Temporárias"

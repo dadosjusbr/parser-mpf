@@ -40,7 +40,7 @@ jobs:
 
       # Running all tests
       - name: Running tests
-        run: python3 -m unittest discover -s ./src -p 'test_*.py'
+        run: python3 -m unittest discover -s ./src -p '*_test.py'
 
       # Login against a Docker registry except on PR
       # https://github.com/docker/login-action

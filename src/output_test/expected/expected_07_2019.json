@@ -37,21 +37,21 @@
                     },
                     {
                         "natureza": "D",
-                        "categoria": "Obrigatórios / Legais",
+                        "categoria": "Obrigatórios/Legais",
                         "item": "Contribuição Previdenciária",
-                        "valor": -910.08
-                    },
-                    {
-                        "natureza": "D",
-                        "categoria": "Obrigatórios / Legais",
-                        "item": "Imposto de Renda",
-                        "valor": -33689.11
-                    },
-                    {
-                        "natureza": "D",
-                        "categoria": "Obrigatórios / Legais",
-                        "item": "Retenção por Teto Constitucional",
                         "valor": -3705.8
+                    },
+                    {
+                        "natureza": "D",
+                        "categoria": "Obrigatórios/Legais",
+                        "item": "Imposto de Renda",
+                        "valor": -7082.68
+                    },
+                    {
+                        "natureza": "D",
+                        "categoria": "Obrigatórios/Legais",
+                        "item": "Retenção por Teto Constitucional",
+                        "valor": -0.0
                     },
                     {
                         "categoria": "Verbas Indenizatórias",

@@ -84,16 +84,16 @@ def remunerations_after(file_indenizatorias):
                 rem.natureza = Coleta.Remuneracao.Natureza.Value("R")
                 rem.categoria = "Verbas indenizatórias"
                 rem.item = str(new_row[4])
-                rem.valor = float(number.format_value(new_row[5]))
+                rem.valor = float(number.format_value(str(new_row[5]).replace('R$','')))
                 rem.tipo_receita = Coleta.Remuneracao.TipoReceita.Value("O")
                 remuneracoes.remuneracao.append(rem)
             # Outras remunerações temporárias
-            if len(new_row) in [8, 6]:
+            if new_row[len(new_row)-2] != "N/C" and len(new_row) in [8, 6]:
                 rem = Coleta.Remuneracao()
                 rem.natureza = Coleta.Remuneracao.Natureza.Value("R")
                 rem.categoria = "Outras remunerações temporárias"
                 rem.item = str(new_row[len(new_row)-2])
-                rem.valor = float(number.format_value(new_row[len(new_row)-1]))
+                rem.valor = float(number.format_value(str(new_row[len(new_row)-1]).replace('R$','')))
                 rem.tipo_receita = Coleta.Remuneracao.TipoReceita.Value("O")
                 remuneracoes.remuneracao.append(rem)
             dict_remuneracoes[mat] = remuneracoes

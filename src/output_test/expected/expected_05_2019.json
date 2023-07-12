@@ -36,20 +36,21 @@
                     },
                     {
                         "natureza": "D",
-                        "categoria": "Obrigatórios / Legais",
+                        "categoria": "Obrigatórios/Legais",
                         "item": "Contribuição Previdenciária",
                         "valor": -3705.8
                     },
                     {
                         "natureza": "D",
-                        "categoria": "Obrigatórios / Legais",
+                        "categoria": "Obrigatórios/Legais",
                         "item": "Imposto de Renda",
                         "valor": -7273.63
                     },
                     {
                         "natureza": "D",
-                        "categoria": "Obrigatórios / Legais",
-                        "item": "Retenção por Teto Constitucional"
+                        "categoria": "Obrigatórios/Legais",
+                        "item": "Retenção por Teto Constitucional",
+                        "valor": -0.0
                     }
                 ]
             }

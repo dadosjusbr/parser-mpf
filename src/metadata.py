@@ -10,6 +10,7 @@ from coleta import coleta_pb2 as Coleta
 
 # As planilhas de indenizacoes seguem um formato de dados diferente a partir de setembro de 2021.
 
+# A planilha de indenizações de 07/2020 também possui um formato diferente, similar ao adotado em 2021. 
 
 def get(month, year):
     if year < 2019 or (year == 2019 and month < 7):
@@ -43,7 +44,7 @@ def get(month, year):
         metadata.receita_base = Coleta.Metadados.OpcoesDetalhamento.DETALHADO
         metadata.despesas = Coleta.Metadados.OpcoesDetalhamento.DETALHADO
         metadata.outras_receitas = Coleta.Metadados.OpcoesDetalhamento.DETALHADO
-        if (year == 2021 and month == 9) or (year == 2023 and month == 2):
+        if (year == 2021 and month == 9) or (year == 2023 and month == 2) or (int(year) == 2020 and int(month) == 7):
             metadata.formato_consistente = False
         else:
             metadata.formato_consistente = True

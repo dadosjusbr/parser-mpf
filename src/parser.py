@@ -196,8 +196,9 @@ def parse(data, colect_key):
     if int(data.year) > 2019 or (int(data.year) == 2019 and int(data.month) >= 7):
         employees.update(parse_employees_after(
             data.contracheque, colect_key, data.month, data.year))
-        # As planilhas de indenizacoes seguem um formato de dados diferente a partir de setembro de 2021.
-        if int(data.year) > 2021 or (int(data.year) == 2021 and int(data.month) >= 9):
+        # As planilhas de indenizacoes seguem um formato de dados diferente a partir de setembro de 2021. 
+        # 07/2020 também segue esse formato, sendo uma exceção em 2020.
+        if int(data.year) > 2021 or (int(data.year) == 2021 and int(data.month) >= 9) or (int(data.year) == 2020 and int(data.month) == 7):
             update_employees_after(data.indenizatorias, employees)
         else:
             update_employees_before(data.indenizatorias, employees)

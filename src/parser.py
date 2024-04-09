@@ -13,24 +13,30 @@ def parse_employees_after(file_name, colect_key, month, year):
     for row in file_name:
         if str(row[0]) == "TOTAL GERAL":
             break
-        if not number.is_nan(row[0]) and str(row[0]) != "Matrícula":
+        if not number.is_nan(row[0]) and str(row[0]) not in ["Matrícula","Lotação"]:
             # As planilhas do MPF possui células vazias (NaN) entre os dados,
             # aqui removemos essas células e deixamos apenas as informações dos membros
             new_row = [x for x in row if not number.is_nan(x)]
             member = Coleta.ContraCheque()
             member.id_contra_cheque = colect_key + "/" + str(counter)
             member.chave_coleta = colect_key
-            member.matricula = str(new_row[0])
-            member.nome = new_row[1]
-            member.funcao = new_row[2]
-            member.local_trabalho = new_row[3]
+            if int(year) >= 2024:
+                member.matricula = str(new_row[1])
+                member.nome = new_row[2]
+                member.funcao = new_row[3]
+                member.local_trabalho = new_row[0]
+            else:
+                member.matricula = str(new_row[0])
+                member.nome = new_row[1]
+                member.funcao = new_row[2]
+                member.local_trabalho = new_row[3]
             member.tipo = Coleta.ContraCheque.Tipo.Value("MEMBRO")
             member.ativo = True
             member.remuneracoes.CopyFrom(
                 create_remuneration(new_row, month, year)
             )
 
-            employees[str(new_row[0])] = member
+            employees[member.matricula] = member
             counter += 1
 
     return employees
@@ -62,16 +68,19 @@ def parse_employees_before(file_name, colect_key, month, year):
     return employees
 
 
-def remunerations_after(file_indenizatorias):
+def remunerations_after(file_indenizatorias, month, year):
     dict_remuneracoes = {}
     for row in file_indenizatorias:
         if 'Data' in str(row):
             break
-        if not number.is_nan(row[0]) and str(row[0]) != "Matrícula":
+        if not number.is_nan(row[0]) and str(row[0]) not in ["Matrícula", "Lotação"]:
             # As planilhas do MPF possui células vazias (NaN) entre os dados,
             # aqui removemos essas células e deixamos apenas as informações dos membros
             new_row = [x for x in row if not number.is_nan(x)]
-            mat = str(new_row[0])
+            if int(year) >= 2024: 
+                mat = str(new_row[1])
+            else:
+                mat = str(new_row[0])
             remuneracoes = dict_remuneracoes.get(mat, Coleta.Remuneracoes())
             # Verbas indenizatórias
             # O MPF não possui formato estritamente tabular, sendo necessário apagarmos células vazias, deixando apenas os dados (new_row[8]).
@@ -88,7 +97,7 @@ def remunerations_after(file_indenizatorias):
                 rem.tipo_receita = Coleta.Remuneracao.TipoReceita.Value("O")
                 remuneracoes.remuneracao.append(rem)
             # Outras remunerações temporárias
-            if new_row[len(new_row)-2] != "N/C" and len(new_row) in [8, 6]:
+            if "N/C" not in [new_row[len(new_row)-2], new_row[len(new_row)-1]] and len(new_row) in [8, 6]:
                 rem = Coleta.Remuneracao()
                 rem.natureza = Coleta.Remuneracao.Natureza.Value("R")
                 rem.categoria = "Outras remunerações temporárias"
@@ -165,8 +174,8 @@ def create_remuneration(row, month, year):
     return remuneration_array
 
 
-def update_employees_after(file_indenizacoes, employees):
-    remuneracoes = remunerations_after(file_indenizacoes)
+def update_employees_after(data, employees):
+    remuneracoes = remunerations_after(data.indenizatorias, data.month, data.year)
     for employee in employees:
         emp = employees[employee]
         if employee in remuneracoes.keys():
@@ -199,7 +208,7 @@ def parse(data, colect_key):
         # As planilhas de indenizacoes seguem um formato de dados diferente a partir de setembro de 2021. 
         # 07/2020 também segue esse formato, sendo uma exceção em 2020.
         if int(data.year) > 2021 or (int(data.year) == 2021 and int(data.month) >= 9) or (int(data.year) == 2020 and int(data.month) == 7):
-            update_employees_after(data.indenizatorias, employees)
+            update_employees_after(data, employees)
         else:
             update_employees_before(data.indenizatorias, employees)
     else:

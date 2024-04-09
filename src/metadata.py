@@ -44,7 +44,7 @@ def get(month, year):
         metadata.receita_base = Coleta.Metadados.OpcoesDetalhamento.DETALHADO
         metadata.despesas = Coleta.Metadados.OpcoesDetalhamento.DETALHADO
         metadata.outras_receitas = Coleta.Metadados.OpcoesDetalhamento.DETALHADO
-        if (year == 2021 and month == 9) or (year == 2023 and month == 2) or (int(year) == 2020 and int(month) == 7):
+        if (year == 2021 and month == 9) or (year == 2023 and month == 2) or (int(year) == 2020 and int(month) == 7) or (year == 2024 and month == 1):
             metadata.formato_consistente = False
         else:
             metadata.formato_consistente = True

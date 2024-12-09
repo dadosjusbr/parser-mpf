@@ -141,7 +141,10 @@ def create_remuneration(row, month, year):
         remuneration.categoria = REMUNERACAOBASICA
         remuneration.item = key
         remuneration.valor = float(number.format_value(row[value]))
-        remuneration.tipo_receita = Coleta.Remuneracao.TipoReceita.Value("B")
+        if value == 4:
+            remuneration.tipo_receita = Coleta.Remuneracao.TipoReceita.Value("B")
+        else:
+            remuneration.tipo_receita = Coleta.Remuneracao.TipoReceita.Value("O")
         remuneration_array.remuneracao.append(remuneration)
     # REMUNERAÇÃO EVENTUAL OU TEMPORÁRIA
     for key, value in HEADERS[EVENTUALTEMP].items():
@@ -150,7 +153,7 @@ def create_remuneration(row, month, year):
         remuneration.categoria = EVENTUALTEMP
         remuneration.item = key
         remuneration.valor = float(number.format_value(row[value]))
-        remuneration.tipo_receita = Coleta.Remuneracao.TipoReceita.Value("B")
+        remuneration.tipo_receita = Coleta.Remuneracao.TipoReceita.Value("O")
         remuneration_array.remuneracao.append(remuneration)
     # OBRIGATÓRIOS/LEGAIS
     if int(year) > 2019 or (int(year) == 2019 and int(month) >= 7):
